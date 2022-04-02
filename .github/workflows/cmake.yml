@@ -29,7 +29,7 @@ jobs:
     #   run: cmake -DCMAKE_BUILD_TYPE=RELEASE
 
     - name: Build
-      run: mkdir build && cd build && sudo cmake .. -DGMX_BUILD_OWN_FFTW=ON -DREGRESSIONTEST_DOWNLOAD=ON
+      run: mkdir build && cd build && sudo cmake .. -DGMX_BUILD_OWN_FFTW=ON -DREGRESSIONTEST_DOWNLOAD=ON -DCMAKE_CXX_COMPILER=g++
 
     - name: make
       working-directory: build/
