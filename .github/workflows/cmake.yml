@@ -18,11 +18,14 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
+    - name: install g++
+      run: sudo apt-get install g++ -y
+
     - name: Build
-      run: sudo apt-get install g++ -y && cmake -DGMX_BUILD_OWN_FFTW=ON -DREGRESSIONTEST_DOWNLOAD=ON
+      run: mkdir build && cd build && cmake .. -DGMX_BUILD_OWN_FFTW=ON -DREGRESSIONTEST_DOWNLOAD=ON
 
     - name: make
-      # working-directory: ${{github.workspace}}/build
+      working-directory: build/
       #go to build folder and runs make
       run: make
       
