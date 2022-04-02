@@ -3,10 +3,6 @@ name: CMake
 on:
   push:
     branches: [ git_actions ]
-    
-env:
-  # Customize the CMake build type here (Release, Debug, RelWithDebInfo, etc.)
-  BUILD_TYPE: Release
 
 jobs:
   build:
@@ -18,6 +14,11 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
+  - name: update
+      run: sudo apt-get update
+
+    - name: install g++
+      run: sudo apt-get install cmake -y
     - name: install g++
       run: sudo apt-get install g++ -y
 
