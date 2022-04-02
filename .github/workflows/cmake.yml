@@ -19,7 +19,7 @@ jobs:
     - uses: actions/checkout@v3
 
     - name: Build
-      run: cmake -DGMX_BUILD_OWN_FFTW=ON -DREGRESSIONTEST_DOWNLOAD=ON
+      run: apt-get install g++ -y && cmake -DGMX_BUILD_OWN_FFTW=ON -DREGRESSIONTEST_DOWNLOAD=ON
 
     - name: make
       # working-directory: ${{github.workspace}}/build
