@@ -34,7 +34,7 @@ docker run -it --privileged --user=$(id -u):$(id -g) -v ${PWD}:${PWD} -w ${PWD} 
 
 execute 
 ```
-perf record gmx mdrun -v deffmn em
+perf record --call-graph lbr gmx mdrun -v -deffnm em
 ```
 um arquivo perf.data sera gerado. execute o comando a seguir para ver o relatorio
 ```

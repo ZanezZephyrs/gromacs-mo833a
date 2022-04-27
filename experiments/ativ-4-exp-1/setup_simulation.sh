@@ -4,7 +4,7 @@ cd gromacs_generated_files
 wget https://www.ic.unicamp.br/~edson/disciplinas/mo833/2021-1s/anexos/6LVN.pdb
 wget https://www.ic.unicamp.br/~edson/disciplinas/mo833/2021-1s/anexos/ions.mdp
 
-alias gmx="docker run — privileged -it --user=$(id -u):$(id -g) -v ${PWD}:${PWD} -w ${PWD} --rm gromacs_exp:release perf record gmx"
+alias gmx="docker run --privileged -it --user=$(id -u):$(id -g) -v ${PWD}:${PWD} -w ${PWD} --rm gromacs_exp:release gmx"
 gmx pdb2gmx -f 6LVN.pdb -o 6LVN_processed.gro -water spce
 gmx editconf -f 6LVN_processed.gro -o 6LVN_newbox.gro -c -d 1.0 -bt cubic
 gmx solvate -cp 6LVN_newbox.gro -cs spc216.gro -o 6LVN_solv.gro -p topol.top
